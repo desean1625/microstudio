@@ -49,7 +49,7 @@ this.Runtime = class Runtime {
     this.audio.cancelBeeps();
     this.screen.clear();
     try {
-       await this.vm.run(src, 3000, file);
+       await this.vm.run(src, 3000, file,null,this.sources);
       this.listener.postMessage({
         name: "compile_success",
         file: file
@@ -194,7 +194,7 @@ this.Runtime = class Runtime {
     }
   }
 
-  startReady() {
+  async startReady() {
     var err, file, global, init, j, len1, lib, meta, namespace, ref, ref1, src;
     this.started = true;
     meta = {
@@ -272,7 +272,7 @@ this.Runtime = class Runtime {
     ref1 = this.sources;
     for (file in ref1) {
       src = ref1[file];
-      this.updateSource(file, src, false);
+      await this.updateSource(file, src, false);
     }
     if (this.vm.runner.getFunctionSource != null) {
       init = this.vm.runner.getFunctionSource("init");

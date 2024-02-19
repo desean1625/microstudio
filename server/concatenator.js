@@ -137,6 +137,11 @@ this.Concatenator = class Concatenator {
         scripts: ["/js/languages/javascript/runner.js"],
         lib: []
       },
+      javascript_modules: {
+        title: "JavaScript ES5 (requireJS)",
+        scripts: ["/js/languages/es5/runner.js"],
+        lib: ["/js/languages/es5/webpack.js"]
+      },
       microscript_v1_i: {
         title: "microScript 1.0 - interpreted",
         scripts: ["/js/languages/microscript/parser.js", "/js/languages/microscript/program.js", "/js/languages/microscript/token.js", "/js/languages/microscript/tokenizer.js", "/js/languages/microscript/runner_v1_i.js"],
